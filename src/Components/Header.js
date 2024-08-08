@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import receipe from '../Assets/receiep.png'; // Update with the correct path to your image
+import receipe from '../Assets/receiep.png'; 
+import LatestRecipe from '../Pages/latestRecipe.js';
+import Home from './Home.js';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white p-4 shadow-md">
+
+    <>
+ <nav className="bg-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={receipe} alt="Logo" className="h-8 w-10 mr-2" />
@@ -48,8 +52,29 @@ function Header() {
             </li>
           </ul>
         </div>
+       
       </div>
     </nav>
+   <div className='conatiner'>
+  <div className='row'>
+  <div className='col-lg-12'>
+        <Home/>
+        </div>
+  </div>
+
+   </div>
+   <div className='container'>
+   <div className='row'>
+   <div className='col-sm-4'>
+ <LatestRecipe/>
+ </div>
+   </div>
+
+ </div>
+       
+    </>
+   
+    
   );
 }
 
