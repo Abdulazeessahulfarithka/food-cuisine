@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import recipe from '../Assets/receiep.png'; // Corrected typo
+import recipe from '../Assets/receiep.png'; 
 import LatestRecipe from '../Pages/latestRecipe.js';
 import Home from './Home';
 import RamzanRecipe from '../Pages/ramzanRecipe.js';
+import "./Header.css"
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ function Header() {
                 </NavLink>
               </li>
               <li className="text-gray-800">
-                <NavLink to="/RecipeCard" className="block px-2 py-1 rounded hover:bg-gray-200">
+                <NavLink to="/Recipecard" className="block px-2 py-1 rounded hover:bg-gray-200">
                   Recipe Index
                 </NavLink>
               </li>

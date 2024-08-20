@@ -6,38 +6,47 @@ import BreakfastList from './BreakfastList.js';
 
 function Breakfast() {
   const [userList, setUserList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API}/api/category/allreceipe`);
+        // console.log('API response:', response.data);
+
+        // Safeguard to ensure we are handling the response correctly
+        if (response.data && Array.isArray(response.data.recipes)) {
+          setUserList(response.data.recipes);
+        } else {
+          console.error('API response does not contain a recipes array.');
+          setUserList([]);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setError('Failed to fetch data');
+        setUserList([]);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${API}/api/category/allreceipe`);
-      console.log(response.data);
-      
-      // Check if the API response has the `allreceipe` array and set it to `userList`
-      if (Array.isArray(response.data.allreceipe)) {
-        setUserList(response.data.allreceipe);
-      } else {
-        console.error('API response does not contain an allreceipe array.');
-        setUserList([]); // Fallback to an empty array
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      setUserList([]); // Fallback to an empty array in case of error
-    }
-  };
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className='container'>
-      <div className='col-lg-12 mt-3'>
+      <div className='row mt-3'>
         {userList.length > 0 ? (
           userList.map((recipe, index) => (
-           <h1>{recipe.name}</h1>
+            <div className='col-md-4 mb-4' key={index}>
+              <BreakfastList user={recipe} />
+            </div>
           ))
         ) : (
-          <p>No recipes found.</p> // Fallback message if no recipes are available
+          <p>No recipes found.</p>
         )}
       </div>
     </div>

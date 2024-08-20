@@ -1,10 +1,4 @@
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (min-width: 1025px) {
+  .col-s-12 {width: 100%;}
 }

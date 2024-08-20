@@ -31,8 +31,8 @@ function RecipeCardContainer() {
   return (
     <>
       <h1 className="amatic-sc-bold text-center mt-5">Choose Your Meal</h1>
-      <div className="container mt-5">
-        <div className="row justify-content-center">
+      <div className="col-lg-10">
+        <div className="row ">
           {cardsData.map((card, index) => (
             <RecipeCard
               key={index}

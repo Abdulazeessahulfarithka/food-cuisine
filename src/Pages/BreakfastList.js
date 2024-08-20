@@ -1,19 +1,52 @@
 import React from 'react';
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+const cardStyle = {
+  border: "1px solid",
+  borderRadius: "10px",
+  overflow: "hidden",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  backgroundColor: "#fff",
+  width: "300px",
+  height: "250px", 
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+};
+
+const imgStyle = {
+  width: "100%",
+  height: "180px", 
+  objectFit: "cover", 
+};
+
+const bodyStyle = {
+  padding: "10px",
+  textAlign: "center",
+};
 
 function BreakfastList({ user }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/receipe/${user._id}`); // Corrected the URL
+  };
+
   return (
-    <div className="card">
-      <img src={user.photo} alt={user.name} className="card-img-top" />
-      <div className="card-body">
-        <h5 className="card-title">{user.name}</h5>
-        <p className="card-text">{user.description}</p>
-        <p className="card-text"><strong>Ingredients:</strong> {user.ingredients}</p>
-        {user.photo1 && <img src={user.photo1} alt={`${user.name} step`} className="card-img-top" />}
-        <p className="card-text"><strong>Benefits:</strong> {user.benefits}</p>
-        <button className="btn btn-primary">View Recipe</button>
+    <div style={cardStyle}>
+    <img src={user.photo} alt={user.name} style={imgStyle} />
+    <div style={bodyStyle}>
+        <Button variant="outlined" onClick={handleClick}>
+          {user.name}
+        </Button>
       </div>
     </div>
   );
 }
 
 export default BreakfastList;
+
+
+
+
