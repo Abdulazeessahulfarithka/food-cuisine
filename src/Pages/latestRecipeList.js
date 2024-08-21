@@ -1,6 +1,7 @@
 import React from 'react';
-import './latestRecipeList.css'; // Import the CSS file for styling
+import './latestRecipeList.css';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 function LatestRecipeList({ recipe }) {
 const navigate =useNavigate()
@@ -11,12 +12,12 @@ const navigate =useNavigate()
   return (
    <>
     <div className='container'>
-    <div className="card">
+    <div className="cardt">
       <div className="card-img-wrapper">
         <img className="card-img" src={recipe.photo} alt={recipe.name} />
       </div>
       <div className="card-body">
-        <button className="card-title btn btn-primary" onClick={handleClick}>{recipe.name}</button>
+        <Button   className="card-title" onClick={handleClick}>{recipe.name}</Button>
       </div>
     </div>
     </div>

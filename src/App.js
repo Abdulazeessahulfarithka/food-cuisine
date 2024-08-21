@@ -3,9 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import ReceipeCard from "./Pages/ReceipeCard";
 import Breakfast from './Pages/Breakfast';
+import Lunch from "./Pages/lunch"
 import Home from './Components/Home';
 import RecipeDetails from './Pages/BreakfastDetails';
 import LatestRecipeDetails from './Pages/latestRecipeDetails';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/recipecard" element={<ReceipeCard />} />
         <Route path="/breakfast" element={<Breakfast />} />
+        <Route path="/lunch" element={<Lunch />} />
         <Route path="/receipe/:id" element={<RecipeDetails />} />
         <Route path="latestrecipedetails" element={<LatestRecipeDetails/>}/>
       </Routes>

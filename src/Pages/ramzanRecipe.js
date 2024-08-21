@@ -31,8 +31,11 @@ function RamzanRecipe() {
   }, []); // Empty dependency array to run this effect once when the component mounts
 
   return (
-    <div>
+    <>
       <h1>Ramzan Recipes</h1>
+    <div className='container'>
+    <div className='row'>
+  
       {list.length > 0 ? (
         list.map((recipe, index) => (
           <Ramzanrecipelist key={index} recipe={recipe} />
@@ -41,6 +44,9 @@ function RamzanRecipe() {
         <p>No recipes found.</p>
       )}
     </div>
+    </div>
+    </>
+      
   );
 }
 

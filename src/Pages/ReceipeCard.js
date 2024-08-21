@@ -9,8 +9,8 @@ import dinnerimage from "../Assets/dinnerImage.jpg";
 function RecipeCard({ imageSrc, buttonText, link }) {
   return (
     <div className="col-md-4">
-      <div className="card">
-        <img src={imageSrc} className="card-img-top" alt={buttonText} />
+      <div className="cardm">
+        <img src={imageSrc} className="card-img-top-m" alt={buttonText} />
         <div className="card-body">
           <Link to={link} className="btn btn-primary">{buttonText}</Link>
         </div>

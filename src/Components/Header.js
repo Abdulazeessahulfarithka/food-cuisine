@@ -71,7 +71,7 @@ function Header() {
       <div className="container mx-auto my-4">
         <LatestRecipe />
       </div>
-      <div className="container mx-auto my-4">
+      <div className="container">
         <RamzanRecipe />
       </div>
     </>

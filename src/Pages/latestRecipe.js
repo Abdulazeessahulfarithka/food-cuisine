@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import API from '../API/api';
 import LatestRecipeList from './latestRecipeList.js';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LatestRecipe() {
   const [recipes, setRecipes] = useState([]);
