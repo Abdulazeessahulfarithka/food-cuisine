@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import ReceipeCard from "./Pages/ReceipeCard";
 import Breakfast from './Pages/Breakfast';
-import Lunch from "./Pages/lunch"
+import Lunch from "./Pages/lunch.js"
 import Home from './Components/Home';
 import RecipeDetails from './Pages/BreakfastDetails';
 import LatestRecipeDetails from './Pages/latestRecipeDetails';
