@@ -10,7 +10,7 @@ function RamzanRecipe() {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/api/ramdan/allreceipe`);
-        console.log('Full API response:', response.data);
+        // console.log('Full API response:', response.data);
         
         // Adjust this part based on your actual API response structure
         if (response.data && Array.isArray(response.data.recipe)) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const cardStyle = {
+const card = {
   border: "1px solid",
   borderRadius: "10px",
   overflow: "hidden",
@@ -26,15 +26,15 @@ const bodyStyle = {
   textAlign: "center",
 };
 
-function BreakfastList({ user }) {
+function LunchList({ user }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/receipe/${user._id}`); // Corrected the URL
+    navigate(`/lunch/${user._id}`);
   };
 
   return (
-    <div style={cardStyle}>
+    <div style={card}>
     <img src={user.photo} alt={user.name} style={imgStyle} />
     <div style={bodyStyle}>
         <Button variant="outlined" onClick={handleClick}>
@@ -45,7 +45,7 @@ function BreakfastList({ user }) {
   );
 }
 
-export default BreakfastList;
+export default LunchList;
 
 
 

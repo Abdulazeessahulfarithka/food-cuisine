@@ -12,7 +12,7 @@ function LatestRecipe() {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/api/latest/recipes`);
-        console.log(response.data); // For debugging
+        console.log(response.data);
         setRecipes(response.data.recipes || []);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -37,7 +37,7 @@ function LatestRecipe() {
           ) : recipes.length > 0 ? (
             recipes.map((recipe, index) => (
               <div key={index} className="col-lg-4 col-md-6 d-flex justify-content-center mb-4">
-                <LatestRecipeList recipe={recipe} />
+                <LatestRecipeList user={recipe} />
               </div>
             ))
           ) : (

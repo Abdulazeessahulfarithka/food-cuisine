@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import recipe from '../Assets/receiep.png'; 
 import LatestRecipe from '../Pages/latestRecipe.js';
 import Home from './Home';
 import RamzanRecipe from '../Pages/ramzanRecipe.js';
 import "./Header.css"
 
+
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate()
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  
+  const handleSearchSubmit = () => {
+    if (searchTerm.trim()) {
+      navigate(`/lunch?search=${encodeURIComponent(searchTerm.trim())}`); // Redirect with search term as query parameter
+    }
+
+  };
 
   return (
     <>
@@ -60,6 +74,28 @@ function Header() {
                 <NavLink to="#" className="block px-2 py-1 rounded hover:bg-gray-200">
                   Media
                 </NavLink>
+              </li>
+              <li>
+             <div class="input-group">
+  <div class="form-outline" data-mdb-input-init>
+  <input
+                type="search"
+                id="form1"
+                className="form-control"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              <label className="form-label" htmlFor="form1">Search</label>
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-mdb-ripple-init
+              onClick={handleSearchSubmit}
+            >
+    <i class="fas fa-search"></i>
+  </button>
+</div>
               </li>
             </ul>
           </div>

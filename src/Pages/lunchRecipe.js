@@ -13,9 +13,7 @@ function Breakfast() {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/api/lunch/allrecipes`);
-        // console.log('API response:', response.data);
-
-        // Safeguard to ensure we are handling the response correctly
+        console.log('API response LUNCHrecipe:', response.data);
         if (response.data && Array.isArray(response.data.recipes)) {
           setUserList(response.data.recipes);
         } else {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { API } from '../API/api.js';
 
 function RecipeDetails() {
-  const { id } = useParams(); // This is the MongoDB ObjectID from the URL
+  const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,10 +12,9 @@ function RecipeDetails() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get(`${API}/api/category/allreceipe`);
-        console.log("API Response:", response.data.recipes);
-        const fetchedRecipe = response.data.recipes.find(r => r._id === id); 
-        console.log("API",fetchedRecipe)
+        const response = await axios.get(`${API}/api/lunch/allrecipes`);
+        console.log("API Response:", response.data);
+        const fetchedRecipe = response.data.recipes.find(m => m._id === id); 
         if (fetchedRecipe) {
           setRecipe(fetchedRecipe);
         } else {
@@ -39,25 +38,35 @@ function RecipeDetails() {
   return (
     recipe && (
       <div className="container">
+      <h1>{recipe.description}</h1>
         <h1>{recipe.name}</h1>
         <img src={recipe.photo} alt={recipe.name} className="img-fluid" />
+        <div>
         <h3>Ingredients</h3>
         <ul>
           {recipe.ingredients.map((ingredient, index) => (
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
-        <h3>Directions</h3>
-        <ol>
+        </div>
+
+      <div>
+      <h3>Directions</h3>
+        <ul>
           {recipe.instructions.map((instruction, index) => (
             <li key={index}>{instruction}</li>
           ))}
-        </ol>
+        </ul>
+      </div>
+
         {recipe.photos && recipe.photos.map((photo, index) => (
           <img key={index} src={photo} alt={`${recipe.name} step ${index + 1}`} className="img-fluid" />
         ))}
-        <h3>Benefits</h3>
-        <p>{recipe.benefits}</p>
+
+       <div>
+       <h3>Benefits</h3>
+       <p>{recipe.benefits}</p>
+       </div>
       </div>
     )
   );

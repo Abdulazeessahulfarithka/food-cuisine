@@ -3,24 +3,26 @@ import './latestRecipeList.css';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-function LatestRecipeList({ recipe }) {
+
+
+function LatestRecipeList({ user }) {
 const navigate =useNavigate()
 
   const handleClick=()=>[
-   navigate("/latestrecipedetails")
+   navigate(`/latestrecipe/${user._id}`)
   ]
   return (
    <>
-    <div className='container'>
-    <div className="cardt">
+   <div className='container'>
+   <div className="cardt">
       <div className="card-img-wrapper">
-        <img className="card-img" src={recipe.photo} alt={recipe.name} />
+        <img className="card-img" src={user.photo} alt={user.name} />
       </div>
       <div className="card-body">
-        <Button   className="card-title" onClick={handleClick}>{recipe.name}</Button>
+        <Button className="cardp"  onClick={handleClick}>{user.name}</Button>
       </div>
     </div>
-    </div>
+   </div>
    </>
   );
 }
